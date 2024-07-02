@@ -1,11 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import { Flex, Heading, Paragraph, Strong, useCurrentTheme } from "@dynatrace/strato-components-preview";
 import { Card } from "../components/Card";
+import {ProblemTable} from "../functions/problemFunctions";
+import { DataTable} from '@dynatrace/strato-components-preview/tables';
+import {TimeFilter} from '../components/timeFilter';
+import {UseProblemsAPI} from "../functions/getProblems";
+
+//const entitiesData = useEntitiesAPI(hostConfig);
+//const problems = useProblemsAPI();
+//console.log("these are the problems", problems);
 
 export const Home = () => {
   const theme = useCurrentTheme();
   return (
+    
     <Flex flexDirection="column" alignItems="center" padding={32}>
+      {/*
       <img
         src="./assets/Dynatrace_Logo.svg"
         alt="Dynatrace Logo"
@@ -38,6 +48,16 @@ export const Home = () => {
           name="Developer Community"
         />
       </Flex>
+      */}
+      {<TimeFilter/>}
+      {<UseProblemsAPI/>}
+      {/*
+      <DataTable columns={overviewColumns} data={problems} sortable>
+          <DataTable.Toolbar>
+              <DataTable.DownloadData />
+          </DataTable.Toolbar>
+      </DataTable>
+      */}
     </Flex>
   );
 };
